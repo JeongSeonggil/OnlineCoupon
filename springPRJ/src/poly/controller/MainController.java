@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 public class MainController extends AbstractController {
 
     @RequestMapping(value = "index")
-    public String Index(HttpServletRequest request, ModelMap model) throws Exception {
+    public String index(HttpServletRequest request, ModelMap model) throws Exception {
         log.info(this.getClass().getName());
 
         return "/index";
