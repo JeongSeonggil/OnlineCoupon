@@ -53,7 +53,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/index.do" class="logo">
                         <img src="/resources/assets/images/logo.png">
                     </a>
                 </nav>
@@ -71,6 +71,7 @@
                 <div class="section-heading">
                     <h2>Login</h2>
                 </div>
+                <%-- Login Form--%>
                 <form id="subscribe" action="/user/findUserInfo.do" method="post">
                     <div class="row">
                         <div class="col-lg-5">
