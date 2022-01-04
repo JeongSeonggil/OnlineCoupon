@@ -1,4 +1,9 @@
+<%@ page import="poly.util.CmmUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String user_id = CmmUtil.nvl((String) session.getAttribute("user_id"));
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +15,19 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Hexashop Ecommerce HTML CSS Template</title>
+    <title><%=user_id%></title>
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/resources/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/resources/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="/resources/assets/css/templatemo-hexashop.css">
 
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="/resources/assets/css/owl-carousel.css">
 
-    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="/resources/assets/css/lightbox.css">
     <!--
 
     TemplateMo 571 Hexashop
@@ -804,26 +809,26 @@
 
 
 <!-- jQuery -->
-<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="/resources/assets/js/jquery-2.1.0.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="/resources/assets/js/popper.js"></script>
+<script src="/resources/assets/js/bootstrap.min.js"></script>
 
 <!-- Plugins -->
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/accordions.js"></script>
-<script src="assets/js/datepicker.js"></script>
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/imgfix.min.js"></script>
-<script src="assets/js/slick.js"></script>
-<script src="assets/js/lightbox.js"></script>
-<script src="assets/js/isotope.js"></script>
+<script src="/resources/assets/js/owl-carousel.js"></script>
+<script src="/resources/assets/js/accordions.js"></script>
+<script src="/resources/assets/js/datepicker.js"></script>
+<script src="/resources/assets/js/scrollreveal.min.js"></script>
+<script src="/resources/assets/js/waypoints.min.js"></script>
+<script src="/resources/assets/js/jquery.counterup.min.js"></script>
+<script src="/resources/assets/js/imgfix.min.js"></script>
+<script src="/resources/assets/js/slick.js"></script>
+<script src="/resources/assets/js/lightbox.js"></script>
+<script src="/resources/assets/js/isotope.js"></script>
 
 <!-- Global Init -->
-<script src="assets/js/custom.js"></script>
+<script src="/resources/assets/js/custom.js"></script>
 
 <script>
 

@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import javax.print.DocFlavor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.net.URI;
 
 @Controller
@@ -22,6 +23,15 @@ public class UserController extends AbstractController {
     @Resource(name = "UserService")
     private IUserService userService;
 
+
+    @RequestMapping(value = "user/userMain")
+    public String userMain(HttpServletRequest request) throws Exception {
+        log.info(this.getClass().getName() + ".userMain Start!");
+
+        log.info(this.getClass().getName() + ".userMain End!");
+
+        return "/user/userMain";
+    }
     @RequestMapping(value = "user/insertUserInfo", method = RequestMethod.POST)
     public String insertUserInfo(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception {
 
@@ -75,7 +85,7 @@ public class UserController extends AbstractController {
     }
 
     @RequestMapping(value = "user/findUserInfo")
-    public String findUserInfo(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception {
+    public String findUserInfo(HttpServletRequest request, HttpServletResponse response, ModelMap model , HttpSession session) throws Exception {
         log.info(this.getClass().getName() + ".findUserInfo Start !");
         UserDTO pDTO = new UserDTO();
 
@@ -103,11 +113,18 @@ public class UserController extends AbstractController {
         if (rDTO.getUser_seq().equals("")) {
             rDTO = new UserDTO();
             msg = "회원 정보를 확인하세요";
+            url = "/index.do";
         } else {
             msg = "로그인 성공";
+            session.setAttribute("user_id", rDTO.getUser_id());
+            session.setAttribute("user_seq", rDTO.getUser_seq());
+            session.setAttribute("user_name", rDTO.getUser_name());
+            session.setAttribute("user_nic", rDTO.getUser_nic());
+            url = "/user/userMain.do";
+            // session 에 정보 저장
         }
         model.addAttribute("msg", msg);
-        model.addAttribute("url", "/index.do");
+        model.addAttribute("url", url);
 
         return "/redirect";
     }
