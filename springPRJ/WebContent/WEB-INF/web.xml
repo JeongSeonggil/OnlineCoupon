@@ -78,6 +78,8 @@
 		<param-value>dev</param-value>
 	</context-param>
 
+	<absolute-ordering />
+
 	<!-- 도메인만 입력했을 경우, 보여주는 페이지 -->
 	<welcome-file-list>
 		<welcome-file>index.do</welcome-file>
