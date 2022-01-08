@@ -35,6 +35,12 @@
 		FROM OnlineCoupon.USER
 		WHERE USER_ID = #{user_id} AND USER_PASSWORD = #{user_password}
 	</select>
+	<!-- 사용자 Seq (식별자 값) 가져오기 -->
+	<select id="getUserSeq" parameterType="UserDTO" resultType="UserDTO">
+		SELECT USER_SEQ
+		FROM OnlineCoupon.USER
+		WHERE USER_ID = #{user_id}
+	</select>
 
 
 			

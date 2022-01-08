@@ -28,15 +28,7 @@
     <link rel="stylesheet" href="/resources/assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="/resources/assets/css/lightbox.css">
-    <!--
-
-    TemplateMo 571 Hexashop
-
-    https://templatemo.com/tm-571-hexashop
-
-    -->
 </head>
-
 <body>
 
 <!-- ***** Preloader Start ***** -->
@@ -57,8 +49,8 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png">
+                    <a href="/user/userMain.do" class="logo">
+                        <img src="/resources/assets/images/logo.png">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -103,46 +95,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
-                <div class="left-content">
-                    <div class="thumb">
-                        <div class="inner-content">
-                            <h4>We Are Hexashop</h4>
-                            <span>Awesome, clean &amp; creative HTML5 Template</span>
-                            <div class="main-border-button">
-                                <a href="#">Purchase Now!</a>
-                            </div>
-                        </div>
-                        <img src="assets/images/left-banner-image.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
                 <div class="right-content">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="right-first-image">
                                 <div class="thumb">
-                                    <div class="inner-content">
-                                        <h4>Women</h4>
-                                        <span>Best Clothes For Women</span>
-                                    </div>
-                                    <div class="hover-content">
-                                        <div class="inner">
-                                            <h4>Women</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                                            <div class="main-border-button">
-                                                <a href="#">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src="assets/images/baner-right-image-01.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="right-first-image">
-                                <div class="thumb">
-                                    <div class="inner-content">
+                                    <div class="inner-content" onclick="text()">
                                         <h4>Men</h4>
                                         <span>Best Clothes For Men</span>
                                     </div>
@@ -155,47 +113,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="assets/images/baner-right-image-02.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="right-first-image">
-                                <div class="thumb">
-                                    <div class="inner-content">
-                                        <h4>Kids</h4>
-                                        <span>Best Clothes For Kids</span>
-                                    </div>
-                                    <div class="hover-content">
-                                        <div class="inner">
-                                            <h4>Kids</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                                            <div class="main-border-button">
-                                                <a href="#">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src="assets/images/baner-right-image-03.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="right-first-image">
-                                <div class="thumb">
-                                    <div class="inner-content">
-                                        <h4>Accessories</h4>
-                                        <span>Best Trend Accessories</span>
-                                    </div>
-                                    <div class="hover-content">
-                                        <div class="inner">
-                                            <h4>Accessories</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                                            <div class="main-border-button">
-                                                <a href="#">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src="assets/images/baner-right-image-04.jpg">
+                                    <img src="/resources/assets/images/baner-right-image-02.jpg" onclick="text()">
                                 </div>
                             </div>
                         </div>
@@ -233,7 +151,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/men-01.jpg" alt="">
+                                <img src="/resources/assets/images/men-01.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Classic Spring</h4>
@@ -256,7 +174,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/men-02.jpg" alt="">
+                                <img src="/resources/assets/images/men-02.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Air Force 1 X</h4>
@@ -279,7 +197,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/men-03.jpg" alt="">
+                                <img src="/resources/assets/images/men-03.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Love Nana ‘20</h4>
@@ -302,7 +220,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/men-01.jpg" alt="">
+                                <img src="/resources/assets/images/men-01.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Classic Spring</h4>
@@ -323,123 +241,6 @@
     </div>
 </section>
 <!-- ***** Men Area Ends ***** -->
-
-<!-- ***** Women Area Starts ***** -->
-<section class="section" id="women">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-heading">
-                    <h2>Women's Latest</h2>
-                    <span>Details to details is what makes Hexashop different from the other themes.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="women-item-carousel">
-                    <div class="owl-women-item owl-carousel">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/women-01.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>New Green Jacket</h4>
-                                <span>$75.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/women-02.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Dress</h4>
-                                <span>$45.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/women-03.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Spring Collection</h4>
-                                <span>$130.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/women-01.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Spring</h4>
-                                <span>$120.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** Women Area Ends ***** -->
 
 <!-- ***** Kids Area Starts ***** -->
 <section class="section" id="kids">
@@ -467,7 +268,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/kid-01.jpg" alt="">
+                                <img src="/resources/assets/images/kid-01.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>School Collection</h4>
@@ -490,7 +291,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/kid-02.jpg" alt="">
+                                <img src="/resources/assets/images/kid-02.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Summer Cap</h4>
@@ -513,7 +314,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/kid-03.jpg" alt="">
+                                <img src="/resources/assets/images/kid-03.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Classic Kid</h4>
@@ -536,7 +337,7 @@
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
-                                <img src="assets/images/kid-01.jpg" alt="">
+                                <img src="/resources/assets/images/kid-01.jpg" alt="">
                             </div>
                             <div class="down-content">
                                 <h4>Classic Spring</h4>
@@ -587,12 +388,12 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <img src="assets/images/explore-image-01.jpg" alt="">
+                                <img src="/resources/assets/images/explore-image-01.jpg" alt="">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="second-image">
-                                <img src="assets/images/explore-image-02.jpg" alt="">
+                                <img src="/resources/assets/images/explore-image-02.jpg" alt="">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -631,7 +432,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-01.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-01.jpg" alt="">
                 </div>
             </div>
             <div class="col-2">
@@ -642,7 +443,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-02.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-02.jpg" alt="">
                 </div>
             </div>
             <div class="col-2">
@@ -653,7 +454,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-03.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-03.jpg" alt="">
                 </div>
             </div>
             <div class="col-2">
@@ -664,7 +465,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-04.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-04.jpg" alt="">
                 </div>
             </div>
             <div class="col-2">
@@ -675,7 +476,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-05.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-05.jpg" alt="">
                 </div>
             </div>
             <div class="col-2">
@@ -686,7 +487,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                    <img src="assets/images/instagram-06.jpg" alt="">
+                    <img src="/resources/assets/images/instagram-06.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -753,7 +554,7 @@
             <div class="col-lg-3">
                 <div class="first-item">
                     <div class="logo">
-                        <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                        <img src="/resources/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
                     </div>
                     <ul>
                         <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>

@@ -69,10 +69,10 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="section-heading">
-                    <h2>Login</h2>
+                    <h2>Join</h2>
                 </div>
                 <%-- Login Form--%>
-                <form id="subscribe" action="/user/findUserInfo.do" method="post">
+                <form id="subscribe" action="/user/insertUserInfo.do" method="post">
                     <div class="row">
                         <div class="col-lg-5">
                             <fieldset>
@@ -84,12 +84,45 @@
                                 <input name="user_password" type="password" placeholder="Your PASSWORD" required="">
                             </fieldset>
                         </div>
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="user_name" type="text" placeholder="Your NAME" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="user_nic" type="text" placeholder="Your NICNAME" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-3">
+                            <fieldset>
+                                <select name="user_gender" style="width: 100%; height: 45px; margin-bottom: 10px;">
+                                    <option value="">Your GENDER</option>
+                                    <option value="M">남자</option>
+                                    <option value="W">여자</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <fieldset>
+                                <select name="user_gender" style="width: 100%; height: 45px; margin-bottom: 10px;">
+                                    <option value="">Your AGE</option>
+                                    <% for(int i = 10; i < 70; i+= 10){
+                                    %>
+                                    <option value="<%=i%>"><%=i%> 대</option>
+                                    <%
+                                    }
+                                    %>
+                                </select>
+                            </fieldset>
+                        </div>
                         <div class="col-lg-2">
                             <fieldset>
                                 <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
                                 <br>
                                 <br>
-                                <a href="/user/userJoin.do" target="_parent" title="free css templates">회원가입</a><br>
+                                <a href="https://templatemo.com" target="_parent" title="free css templates">회원가입</a><br>
                                 <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">사업자로그인</a></p>
                                 <br>
                             </fieldset>

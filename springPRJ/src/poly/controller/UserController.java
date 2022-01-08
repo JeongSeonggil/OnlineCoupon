@@ -1,10 +1,17 @@
 package poly.controller;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageConfig;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.sun.jndi.toolkit.url.Uri;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import poly.controller.comm.AbstractController;
 import poly.dto.UserDTO;
 import poly.service.IUserService;
@@ -12,10 +19,14 @@ import poly.util.CmmUtil;
 import poly.util.EncryptUtil;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.print.DocFlavor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.OutputStream;
 import java.net.URI;
 
 @Controller
@@ -31,6 +42,15 @@ public class UserController extends AbstractController {
         log.info(this.getClass().getName() + ".userMain End!");
 
         return "/user/userMain";
+    }
+
+    @RequestMapping("/user/userJoin")
+    public String userJoin(HttpServletRequest request) throws Exception {
+        log.info(this.getClass().getName() + ".userJoin Start!");
+
+        log.info(this.getClass().getName() + "userJoin End!");
+
+        return "/user/userJoin";
     }
     @RequestMapping(value = "user/insertUserInfo", method = RequestMethod.POST)
     public String insertUserInfo(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception {
@@ -65,12 +85,49 @@ public class UserController extends AbstractController {
         pDTO.setUrl(url);
 
         int res = userService.insertUserInfo(pDTO);
-
         if (res == 2) {
             msg = "회원 정보 중복";
 
         } else if (res == 1) {
             msg = "회원 가입 성공";
+
+            // seq 값 가져와서 QR 생성하기
+            url = "http://localhost:8090/springAPI/user/getUserSeq.do?user_id=" + user_id;
+            pDTO.setUrl(url);
+
+            UserDTO rDTO = userService.getUserSeq(pDTO);
+
+            String user_seq = CmmUtil.nvl(rDTO.getUser_seq());
+            // 회원 가입 성공시 QR 코드 함께 생성
+            String name = user_seq + ".png"; // 생성되는 파일 이름 / user_seq로 변경
+            String qrUrl = "index.do?user_seq=" + user_seq;
+
+            try {
+                File file = null;
+                // qr코드 이미지를 저장할 디렉토리 지정
+                file = new File("/resources/QR/" + user_seq);
+                if(!file.exists()) {
+                    file.mkdirs();
+                }
+                // qr코드 인식시 이동할 url 주소
+                String codeurl = new String(qrUrl.getBytes("UTF-8"), "ISO-8859-1");
+                // qr코드 바코드 생성값
+                int qrcodeColor = 0xFF2e4e96;
+                // qr코드 배경색상값
+                int backgroundColor = 0xFFFFFFFF;
+
+                QRCodeWriter qrCodeWriter = new QRCodeWriter();
+                // 3,4번째 parameter값 : width/height값 지정
+                BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
+                //
+                MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
+                BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
+                // ImageIO를 사용한 바코드 파일쓰기
+                ImageIO.write(bufferedImage, "png", new File("/resources/QR/"+name));
+
+            } catch (Exception e) {
+                log.info("QR Exception : " + e.toString());
+            }
         }else{
             msg = "회원 가입 실패";
         }

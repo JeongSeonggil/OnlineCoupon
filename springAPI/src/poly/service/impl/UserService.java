@@ -16,7 +16,7 @@ public class UserService extends AbstractService implements IUserService {
 
     @Resource(name = "UserMapper")
     private IUserMapper userMapper;
-
+    @Override
     public int insertUserInfo(UserDTO pDTO) throws Exception {
         int res;
         log.info(this.getClass().getName() + ".insertUserInfo Start");
@@ -34,7 +34,7 @@ public class UserService extends AbstractService implements IUserService {
         return res;
 
     }
-
+    @Override
     public UserDTO findUserInfo(UserDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".findUserInfo Start!");
 
@@ -49,5 +49,20 @@ public class UserService extends AbstractService implements IUserService {
 
         return rDTO;
 
+    }
+
+    @Override
+    public UserDTO getUserSeq(UserDTO pDTO) throws Exception {
+        log.info(this.getClass().getName() + ".getUserSeq Start!");
+
+        UserDTO rDTO = userMapper.getUserSeq(pDTO);
+
+        if (rDTO == null) {
+            rDTO = new UserDTO();
+        }
+
+        log.info(this.getClass().getName() + ".getUserSEQ End!");
+
+        return rDTO;
     }
 }

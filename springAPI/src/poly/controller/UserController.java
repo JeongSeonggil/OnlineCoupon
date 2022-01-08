@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import poly.controller.comm.AbstractController;
 import poly.dto.UserDTO;
 import poly.service.IUserService;
+import poly.service.impl.UserService;
 import poly.util.CmmUtil;
 import poly.util.EncryptUtil;
 
@@ -89,5 +90,34 @@ public class UserController extends AbstractController {
         return rMap;
 
 
+    }
+    @ResponseBody
+    @RequestMapping(value = "springAPI/user/getUserSeq", produces = "application/json; charset=utf8")
+    public Map<String, Object> getUserSeq(HttpServletRequest request) throws Exception {
+        log.info(this.getClass().getName() + ".getUserSeq Start!");
+        Map<String, Object> rMap = new HashMap<>();
+        String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+        log.info("user_id : " + user_id);
+
+        UserDTO pDTO = new UserDTO();
+
+        pDTO.setUser_id(user_id);
+
+        UserDTO rDTO = userService.getUserSeq(pDTO);
+        String res = "";
+        if (rDTO == null) {
+            rDTO = new UserDTO();
+
+            res = "0";
+
+        } else {
+            res = "1";
+        }
+        rMap.put("res", res);
+        rMap.put("user_seq", rDTO.getUser_seq());
+
+        log.info(this.getClass().getName() + ".getUserSeq End!");
+
+        return rMap;
     }
 }

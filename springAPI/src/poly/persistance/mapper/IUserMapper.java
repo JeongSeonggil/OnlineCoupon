@@ -10,4 +10,6 @@ public interface IUserMapper {
     UserDTO getUserExists(UserDTO pDTO) throws Exception; // 중복 확인
 
     UserDTO findUserInfo(UserDTO pDTO) throws Exception; // 로그인
+
+    UserDTO getUserSeq(UserDTO pDTO) throws Exception;
 }

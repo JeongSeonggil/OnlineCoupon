@@ -78,4 +78,32 @@ public class UserService extends AbstractService implements IUserService {
 
         return rDTO;
     }
+
+    public UserDTO getUserSeq(UserDTO pDTO) throws Exception {
+        log.info(this.getClass().getName() + ".getUserSeq Start!");
+
+        String callUrl = CmmUtil.nvl(pDTO.getUrl());
+
+        String json = jsonService.getUrlForJSON(callUrl);
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(json);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        String user_seq = jsonObject.get("user_seq").toString();
+        String res = jsonObject.get("res").toString();
+
+        log.info("user_seq : " + user_seq);
+
+        if (res.equals("0")) {
+            user_seq = "";
+        }
+        UserDTO rDTO = new UserDTO();
+        rDTO.setUser_seq(user_seq);
+
+
+        log.info(this.getClass().getName() + ".getUSerSeq End!");
+
+
+        return rDTO;
+    }
 }
