@@ -28,6 +28,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class UserController extends AbstractController {
@@ -99,31 +101,38 @@ public class UserController extends AbstractController {
 
             String user_seq = CmmUtil.nvl(rDTO.getUser_seq());
             // 회원 가입 성공시 QR 코드 함께 생성
-            String name = user_seq + ".png"; // 생성되는 파일 이름 / user_seq로 변경
-            String qrUrl = "index.do?user_seq=" + user_seq;
+            String savePath = request.getServletContext().getRealPath("/resource/qr/"); // qr 경로 target이 아닌 WebContent에
+
+            File file = new File(savePath);
+
+            if (!file.exists()) {
+                file.mkdirs();
+            }
 
             try {
-                File file = null;
-                // qr코드 이미지를 저장할 디렉토리 지정
-                file = new File("/resources/QR/" + user_seq);
-                if(!file.exists()) {
-                    file.mkdirs();
-                }
-                // qr코드 인식시 이동할 url 주소
-                String codeurl = new String(qrUrl.getBytes("UTF-8"), "ISO-8859-1");
-                // qr코드 바코드 생성값
-                int qrcodeColor = 0xFF2e4e96;
-                // qr코드 배경색상값
+                // QR 링크
+                url = "index.do?user_seq=" + user_seq;
+
+                String codeUrl = new String(url.getBytes("UTF-8"), "ISO-8859-1");
+
+                int qrcodeColor =   0xFF2e4e96;
                 int backgroundColor = 0xFFFFFFFF;
 
+                //QRCode 생성
                 QRCodeWriter qrCodeWriter = new QRCodeWriter();
-                // 3,4번째 parameter값 : width/height값 지정
-                BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
-                //
+                BitMatrix bitMatrix = qrCodeWriter.encode(codeUrl, BarcodeFormat.QR_CODE,200, 200);    // 200,200은 width, height
+
                 MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
                 BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
-                // ImageIO를 사용한 바코드 파일쓰기
-                ImageIO.write(bufferedImage, "png", new File("/resources/QR/"+name));
+
+
+                String fileName = "qr-" + user_seq;
+
+                //파일 경로, 파일 이름 , 파일 확장자에 맡는 파일 생성
+                File temp =  new File(savePath+fileName+".png");
+
+                // ImageIO를 사용하여 파일쓰기
+                ImageIO.write(bufferedImage, "png",temp);
 
             } catch (Exception e) {
                 log.info("QR Exception : " + e.toString());
