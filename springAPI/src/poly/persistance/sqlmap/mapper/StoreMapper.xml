@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IStoreMapper">
+	<!-- USER INFO 등록 -->
+	<insert id="insertStoreInfo" parameterType="StoreDTO">
+		INSERT INTO OnlineCoupon.STORE
+			(
+			 STORE_ID,
+			 STORE_PASSWORD,
+			 STORE_ADDRESS,
+			 STORE_ADDRESS2
+			)
+		VALUES
+			(#{store_id},
+			 #{store_password},
+			 #{store_address},
+			 #{store_address2}
+	</insert>
+
+	<!-- 중복 확인 -->
+	<select id="getStoreExists" parameterType="StoreDTO" resultType="StoreDTO">
+		SELECT IF(COUNT(1) = 0, 'N', 'Y') AS EXISTS_YN
+		FROM OnlineCoupon.STORE
+		WHERE STORE_ID = #{store_id}
+	</select>
+
+	<!-- 로그인 -->
+	<select id="findStoreInfo" parameterType="StoreDTO" resultType="StoreDTO">
+		SELECT STORE_SEQ, STORE_ID, STORE_ADDRESS, STORE_ADDRESS2
+		FROM OnlineCoupon.STORE
+		WHERE STORE_ID = #{store_id} AND STORE_PASSWORD = #{store_password}
+	</select>
+
+	<!-- 사용자 Seq (식별자 값) 가져오기 -->
+	<select id="getStoreSeq" parameterType="StoreDTO" resultType="StoreDTO">
+		SELECT STORE_SEQ
+		FROM OnlineCoupon.STORE
+		WHERE STORE_SEQ = #{store_seq}
+	</select>
+
+
+			
+</mapper>

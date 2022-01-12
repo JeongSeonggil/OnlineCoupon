@@ -8,6 +8,16 @@ public class StoreDTO {
     private String store_address2; // 상세 주소
     private String exists_yn; // 중복 확인
 
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getStore_seq() {
         return store_seq;
     }

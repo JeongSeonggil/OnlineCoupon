@@ -69,19 +69,29 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="section-heading">
-                    <h2>Login</h2>
+                    <h2>Join</h2>
                 </div>
                 <%-- Login Form--%>
-                <form id="subscribe" action="/user/findUserInfo.do" method="post">
+                <form id="subscribe" action="/store/insertStoreInfo.do" method="post">
                     <div class="row">
                         <div class="col-lg-5">
                             <fieldset>
-                                <input name="user_id" type="text" id="name" placeholder="Your ID" required="">
+                                <input name="store_id" type="text" id="name" placeholder="Your ID" required="">
                             </fieldset>
                         </div>
                         <div class="col-lg-5">
                             <fieldset>
-                                <input name="user_password" type="password" placeholder="Your PASSWORD" required="">
+                                <input name="store_password" type="password" placeholder="Your PASSWORD" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="store_address" type="text" placeholder="Your ADDRESS" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="store_address2" type="text" placeholder="Your ADDRESS2" required="">
                             </fieldset>
                         </div>
                         <div class="col-lg-2">
@@ -89,8 +99,8 @@
                                 <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
                                 <br>
                                 <br>
-                                <a href="/user/userJoin.do" target="_parent" title="free css templates">회원가입</a><br>
-                                <a href="/store/storeLogin.do" target="_blank" title="free & premium responsive templates">사업자로그인</a></p>
+                                <a href="https://templatemo.com" target="_parent" title="free css templates">회원가입</a><br>
+                                <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">사업자로그인</a></p>
                                 <br>
                             </fieldset>
                         </div>

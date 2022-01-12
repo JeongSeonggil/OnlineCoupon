@@ -89,8 +89,8 @@
                                 <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
                                 <br>
                                 <br>
-                                <a href="/user/userJoin.do" target="_parent" title="free css templates">회원가입</a><br>
-                                <a href="/store/storeLogin.do" target="_blank" title="free & premium responsive templates">사업자로그인</a></p>
+                                <a href="/store/storeJoin.do" target="_parent" title="free css templates">사업자 회원가입</a><br>
+                                <a href="/index.do" target="_blank" title="free & premium responsive templates">사용자 로그인</a></p>
                                 <br>
                             </fieldset>
                         </div>
