@@ -59,6 +59,7 @@ public class StoreController extends AbstractController {
         url += "&store_address2=" + store_address2;
 
         pDTO.setUrl(url);
+        // url DTO에 넣기
 
         int res = storeService.insertStoreInfo(pDTO);
 
