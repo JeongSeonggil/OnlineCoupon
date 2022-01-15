@@ -15,6 +15,8 @@ import poly.util.EncryptUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 @Controller
@@ -31,8 +33,8 @@ public class UserController extends AbstractController {
 
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
         String user_password = CmmUtil.nvl(request.getParameter("user_password"));
-        String user_name = CmmUtil.nvl(EncryptUtil.decAES128CBC(request.getParameter("user_name")));
-        String user_nic = CmmUtil.nvl(EncryptUtil.decAES128CBC(request.getParameter("user_nic")));
+        String user_name = CmmUtil.nvl(URLDecoder.decode(request.getParameter("user_name"), "UTF-8"));
+        String user_nic = CmmUtil.nvl(URLEncoder.encode(request.getParameter("user_nic"), "UTF-8"));
         String user_age = CmmUtil.nvl(request.getParameter("user_age"));
         String user_gender = CmmUtil.nvl(request.getParameter("user_gender"));
 

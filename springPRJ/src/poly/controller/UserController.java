@@ -28,6 +28,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -61,7 +63,7 @@ public class UserController extends AbstractController {
 
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
         String user_password_t = CmmUtil.nvl(request.getParameter("user_password"));
-        String user_name_t = CmmUtil.nvl(request.getParameter("user_name"));
+        String user_name = CmmUtil.nvl(request.getParameter("user_name"));
         String user_nic_t = CmmUtil.nvl(request.getParameter("user_nic"));
         String user_age = CmmUtil.nvl(request.getParameter("user_age"));
         String user_gender = CmmUtil.nvl(request.getParameter("user_gender"));
@@ -69,15 +71,14 @@ public class UserController extends AbstractController {
         log.info("user_id : " + user_id);
 
         String user_password = EncryptUtil.encHashSHA256(user_password_t);
-        String user_name = EncryptUtil.encAES128CBC(user_name_t);
         String user_nic = EncryptUtil.encAES128CBC(user_nic_t);
 
         String url = "http://localhost:8090/springAPI/user/insertUserInfo.do?1=1";
 
         url += "&user_id=" + user_id;
         url += "&user_password=" + user_password;
-        url += "&user_name=" + user_name;
-        url += "&user_nic=" + user_nic;
+        url += "&user_name=" + URLEncoder.encode(user_name, "UTF-8");
+        url += "&user_nic=" + URLEncoder.encode(user_nic, "UTF-8");
         url += "&user_age=" + user_age;
         url += "&user_gender=" + user_gender;
         String msg = "";

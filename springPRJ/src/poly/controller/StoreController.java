@@ -13,6 +13,7 @@ import poly.util.EncryptUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.URLEncoder;
 
 @Controller
 public class StoreController extends AbstractController {
@@ -48,19 +49,17 @@ public class StoreController extends AbstractController {
         log.info("store_id : " + CmmUtil.nvl(request.getParameter("store_id")));
         String store_id = CmmUtil.nvl(EncryptUtil.encAES128CBC(request.getParameter("store_id")));
         String store_password = CmmUtil.nvl(EncryptUtil.encHashSHA256(request.getParameter("store_password")));
-        String store_address = CmmUtil.nvl(EncryptUtil.encAES128CBC(request.getParameter("store_address")));
-        String store_address2 = CmmUtil.nvl(EncryptUtil.encAES128CBC(request.getParameter("store_address2")));
+        String store_address = CmmUtil.nvl(request.getParameter("store_address"));
+        String store_address2 = CmmUtil.nvl(request.getParameter("store_address2"));
 
         url = "http://localhost:8090/springAPI/store/insertStoreInfo.do?1=1";
 
         url += "&store_id=" + store_id;
         url += "&store_password=" + store_password;
-        url += "&store_address=" + store_address;
-        url += "&store_address2=" + store_address2;
+        url += "&store_address=" + URLEncoder.encode(store_address, "UTF-8");
+        url += "&store_address2=" + URLEncoder.encode(store_address2, "UTF-8");
 
         pDTO.setUrl(url);
-        // url DTO에 넣기
-
         int res = storeService.insertStoreInfo(pDTO);
 
         if (res == 2) {

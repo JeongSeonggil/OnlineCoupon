@@ -13,6 +13,7 @@ import poly.util.EncryptUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,20 +29,12 @@ public class StoreController extends AbstractController {
         Map<String, Object> rMap = new HashMap<>();
 
         StoreDTO pDTO = new StoreDTO();
-
-
-        // model 에 넣어서 결과 확인
         try {
-            log.info("start!");
-            String store_id = CmmUtil.nvl(EncryptUtil.decAES128CBC(request.getParameter("store_id")));// 인코딩해서 넘어온 값 풀기
-            log.info("store_id : " + store_id);
+            String store_id = CmmUtil.nvl(request.getParameter("store_id"));
             String store_password = CmmUtil.nvl(request.getParameter("store_password"));
-            log.info("store_password : " + store_password);
-            String store_address = CmmUtil.nvl(EncryptUtil.decAES128CBC(request.getParameter("store_address")));
-            log.info("store_address : " + store_address);
-            String store_address2 = CmmUtil.nvl(EncryptUtil.decAES128CBC(request.getParameter("store_address2")));
+            String store_address = CmmUtil.nvl(URLDecoder.decode(request.getParameter("store_address"), "UTF-8"));
+            String store_address2 = CmmUtil.nvl(URLDecoder.decode(request.getParameter("store_address2"), "UTF-8"));
 
-            log.info("store_address2 : " + store_address2);
 
             pDTO.setStore_id(store_id);
             pDTO.setStore_password(store_password);

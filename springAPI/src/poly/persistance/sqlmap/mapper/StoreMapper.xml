@@ -5,17 +5,16 @@
 	<!-- USER INFO 등록 -->
 	<insert id="insertStoreInfo" parameterType="StoreDTO">
 		INSERT INTO OnlineCoupon.STORE
-			(
-			 STORE_ID,
-			 STORE_PASSWORD,
-			 STORE_ADDRESS,
-			 STORE_ADDRESS2
-			)
-		VALUES
-			(#{store_id},
-			 #{store_password},
-			 #{store_address},
-			 #{store_address2}
+		(STORE_ID,
+		 STORE_PASSWORD,
+		 STORE_ADDRESS,
+		 STORE_ADDRESS2)
+		VALUES (
+		        #{store_id},
+				#{store_password},
+				#{store_address},
+				#{store_address2}
+				)
 	</insert>
 
 	<!-- 중복 확인 -->
