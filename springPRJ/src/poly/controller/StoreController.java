@@ -47,12 +47,12 @@ public class StoreController extends AbstractController {
         String url = "";
 
         log.info("store_id : " + CmmUtil.nvl(request.getParameter("store_id")));
-        String store_id = CmmUtil.nvl(EncryptUtil.encAES128CBC(request.getParameter("store_id")));
+        String store_id = CmmUtil.nvl(request.getParameter("store_id"));
         String store_password = CmmUtil.nvl(EncryptUtil.encHashSHA256(request.getParameter("store_password")));
         String store_address = CmmUtil.nvl(request.getParameter("store_address"));
         String store_address2 = CmmUtil.nvl(request.getParameter("store_address2"));
 
-        url = "http://localhost:8090/springAPI/store/insertStoreInfo.do?1=1";
+        url = "http://localhost:9000/springAPI/store/insertStoreInfo.do?1=1";
 
         url += "&store_id=" + store_id;
         url += "&store_password=" + store_password;
@@ -81,4 +81,24 @@ public class StoreController extends AbstractController {
 
         return "/redirect";
     }
+
+    @RequestMapping(value = "store/findStoreInfo", method = RequestMethod.POST)
+    public String findStoreInfo(HttpServletRequest request, ModelMap model, HttpSession session) throws Exception {
+        log.info(this.getClass().getName() + ".findStoreInfo Start!");
+        String store_id = CmmUtil.nvl(request.getParameter("store_id"));
+        String store_password = CmmUtil.nvl(EncryptUtil.encHashSHA256(request.getParameter("store_password")));
+        String url = "http://localhost:9000/springAPI/store/findStoreInfo.do?1=1";
+
+        url += "&store_id=" + store_id;
+        url += "&store_password=" + store_password;
+        StoreDTO pDTO = new StoreDTO();
+        pDTO.setUrl(url);
+
+        StoreDTO rDTO = storeService.findStoreInfo(pDTO);
+        log.info("rDTO : " + rDTO.getStore_seq());
+        return "/index";
+
+    }
+
+
 }

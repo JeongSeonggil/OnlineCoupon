@@ -72,16 +72,16 @@
                     <h2>Login</h2>
                 </div>
                 <%-- Login Form--%>
-                <form id="subscribe" action="/user/findUserInfo.do" method="post">
+                <form id="subscribe" action="/store/findStoreInfo.do" method="post">
                     <div class="row">
                         <div class="col-lg-5">
                             <fieldset>
-                                <input name="user_id" type="text" id="name" placeholder="Your ID" required="">
+                                <input name="store_id" type="text" id="name" placeholder="Your ID" required="">
                             </fieldset>
                         </div>
                         <div class="col-lg-5">
                             <fieldset>
-                                <input name="user_password" type="password" placeholder="Your PASSWORD" required="">
+                                <input name="store_password" type="password" placeholder="Your PASSWORD" required="">
                             </fieldset>
                         </div>
                         <div class="col-lg-2">

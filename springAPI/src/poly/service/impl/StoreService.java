@@ -30,4 +30,13 @@ public class StoreService extends AbstractService implements IStoreService {
 
         return res;
     }
+
+    @Override
+    public StoreDTO findStoreInfo(StoreDTO pDTO) throws Exception {
+        log.info(this.getClass().getName() + ".findStoreInfo Start!");
+        StoreDTO rDTO = storeMapper.findStoreInfo(pDTO);
+        log.info(rDTO.getStore_id());
+        log.info(this.getClass().getName() + ".findStoreInfo End!");
+        return rDTO;
+    }
 }

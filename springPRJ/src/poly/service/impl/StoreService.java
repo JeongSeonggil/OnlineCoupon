@@ -42,4 +42,26 @@ public class StoreService extends AbstractService implements IStoreService {
         return res;
     }
 
+    @Override
+    public StoreDTO findStoreInfo(StoreDTO pDTO) throws Exception {
+        log.info(this.getClass().getName() + ".findStoreInfo Start!");
+
+        Map<String, Object> rMap = new HashMap<>();
+
+        String callUrl = CmmUtil.nvl(pDTO.getUrl());
+        String json = jsonService.getUrlForJSON(callUrl);
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(json);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        rMap = (Map<String, Object>) jsonObject.get("rDTO");
+
+        log.info("store_id : " + rMap.get("store_id"));
+        log.info("store_seq : "  + rMap.get("store_seq"));
+
+        log.info(this.getClass().getName() + ".findStoreInfo End!");
+        StoreDTO rDTO = new StoreDTO();
+        return rDTO;
+    }
+
 }

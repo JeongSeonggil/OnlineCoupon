@@ -52,4 +52,28 @@ public class StoreController extends AbstractController {
 
         return rMap;
     }
+    @ResponseBody
+    @RequestMapping(value = "springAPI/store/findStoreInfo", produces = "application/json; charset=utf8")
+    public Map<String, Object> findStoreInfo(HttpServletRequest request) throws Exception {
+        log.info(this.getClass().getName() + ".findStoreInfo Start!");
+        Map<String, Object> rMap = new HashMap<>();
+        StoreDTO pDTO = new StoreDTO();
+
+        String store_id = CmmUtil.nvl(request.getParameter("store_id"));
+        String store_password = CmmUtil.nvl(request.getParameter("store_password"));
+        log.info("store_id : " + store_id);
+
+        pDTO.setStore_id(store_id);
+        pDTO.setStore_password(store_password);
+
+        StoreDTO rDTO = storeService.findStoreInfo(pDTO);
+
+        String store_seq = CmmUtil.nvl(rDTO.getStore_seq());
+        store_id = CmmUtil.nvl(rDTO.getStore_id());
+        String store_address = CmmUtil.nvl(rDTO.getStore_address());
+        String store_address2 = CmmUtil.nvl(rDTO.getStore_address2());
+        rMap.put("rDTO", rDTO);
+
+        return rMap;
+    }
 }
