@@ -106,8 +106,9 @@
                                     </div>
                                     <div class="hover-content">
                                         <div class="inner">
-                                            <h4>Men</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                            <h4>QR</h4>
+                                            <img src="/resources/qr/qr-<%=session.getAttribute("user_seq")%>.png " style="width: 100px; height: 100px; margin-bottom: 10px;">
+                                            <%-- qr 이미지 불러오기 --%>
                                             <div class="main-border-button">
                                                 <a href="#">Discover More</a>
                                             </div>

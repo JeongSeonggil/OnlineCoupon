@@ -111,7 +111,7 @@ public class UserController extends AbstractController {
             }
 
             try {
-                // QR 링크
+                // QR에 담을 정보 / qr 스캔 시 쿠폰 ADD +1 or make new Cp (사업자에서 실행)
                 url = "index.do?user_seq=" + user_seq;
 
                 String codeUrl = new String(url.getBytes("UTF-8"), "ISO-8859-1");
