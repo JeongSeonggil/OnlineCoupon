@@ -9,6 +9,16 @@ public class CouponDTO {
     private String coupon_contents; // 쿠폰에 들어갈 내용
     private String exists_yn; // 중복 확인
 
+    private String url; // url
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getCoupon_seq() {
         return coupon_seq;
     }
