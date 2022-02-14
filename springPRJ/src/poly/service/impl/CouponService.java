@@ -10,6 +10,7 @@ import poly.service.comm.AbstractService;
 import poly.util.CmmUtil;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,11 +21,11 @@ public class CouponService extends AbstractService implements ICouponService {
     private IJsonService jsonService;
 
     @Override
-    public List<Map<String, Object>> findCouponInfo(CouponDTO pDTO) throws Exception{
+    public List<CouponDTO> findCouponInfo(CouponDTO pDTO) throws Exception{
         log.info(this.getClass().getName() + "findCouponInfo Start!");
 
         // Coupon Map<String, Object>를 담을 List
-        List<Map<String, Object>> rList;
+        List<CouponDTO> rList = new ArrayList<>();
         String callUrl = CmmUtil.nvl(pDTO.getUrl());
 
         String json = jsonService.getUrlForJSON(callUrl);
@@ -33,8 +34,7 @@ public class CouponService extends AbstractService implements ICouponService {
         Object obj = parser.parse(json);
         org.json.simple.JSONObject jsonObject = (JSONObject) obj;
 
-        rList = (List<Map<String, Object>>) jsonObject.get("rList"); // rList : [CouponDTO, CouponDTO2] / 쿠폰 List
-
+        rList = (List<CouponDTO>) jsonObject.get("rList");// rList : [CouponDTO, CouponDTO2] / 쿠폰 List
         log.info("rList : " + rList);
 
 

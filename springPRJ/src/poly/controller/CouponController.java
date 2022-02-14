@@ -40,7 +40,7 @@ public class CouponController extends AbstractController {
 
             pDTO.setUrl(url);
 
-            List<Map<String, Object>> rList = couponService.findCouponInfo(pDTO);
+            List<CouponDTO> rList = couponService.findCouponInfo(pDTO);
 
             model.addAttribute("rList", rList);
 
@@ -52,7 +52,7 @@ public class CouponController extends AbstractController {
              * But 같은 store에서 발행된 쿠폰 리스트만 제공해야하기 때문에 쿠폰 DTO에 담아서 AND 조건으로 조회
              * 선택 시 쿠폰 seq와 함께 카운트 증가 or 쿠폰이 없을 경우 생성 **
              * 1. requst에서 사용자 seq, 사업자 seq 넘겨주기
-             *
+             * Ajax 구현으로 qr 촬영 시 바로 이동하게 구현
              *
              *
              *
