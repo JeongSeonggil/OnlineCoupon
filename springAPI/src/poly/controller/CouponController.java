@@ -28,6 +28,9 @@ public class CouponController extends AbstractController {
 
         String user_seq = CmmUtil.nvl(request.getParameter("user_seq"));
         String store_seq = CmmUtil.nvl(request.getParameter("store_seq"));
+
+        log.info("user_seq : " + user_seq);
+        log.info("store_seq : " + store_seq);
         UserDTO pDTO = new UserDTO();
         pDTO.setUser_seq(user_seq);
 

@@ -3,9 +3,9 @@
 <!-- JAVA와 연결할 Mapper 파일 설정 -->
 <mapper namespace="poly.persistance.mapper.IUserCouponRelationMapper">
 	<select id="findRelation" resultType="UserCouponRelationDTO" parameterType="UserDTO">
-			SELECT URC_COUPON_SEQ
-			FROM USER_COUPON_RELATION
-			WHERE URC_USER_SEQ = "#{user_seq}"
+			SELECT UCR_COUPON_SEQ
+			FROM OnlineCoupon.USER_COUPON_RELATION
+			WHERE UCR_USER_SEQ = #{user_seq}
 
 	</select>
 

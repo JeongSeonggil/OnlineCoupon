@@ -52,7 +52,7 @@ public class StoreController extends AbstractController {
         String store_address = CmmUtil.nvl(request.getParameter("store_address"));
         String store_address2 = CmmUtil.nvl(request.getParameter("store_address2"));
 
-        url = "http://localhost:9000/springAPI/store/insertStoreInfo.do?1=1";
+        url = "http://localhost:8090/springAPI/store/insertStoreInfo.do?1=1";
 
         url += "&store_id=" + store_id;
         url += "&store_password=" + store_password;
@@ -87,7 +87,7 @@ public class StoreController extends AbstractController {
         log.info(this.getClass().getName() + ".findStoreInfo Start!");
         String store_id = CmmUtil.nvl(request.getParameter("store_id"));
         String store_password = CmmUtil.nvl(EncryptUtil.encHashSHA256(request.getParameter("store_password")));
-        String url = "http://localhost:9000/springAPI/store/findStoreInfo.do?1=1";
+        String url = "http://localhost:8090/springAPI/store/findStoreInfo.do?1=1";
 
         url += "&store_id=" + store_id;
         url += "&store_password=" + store_password;
@@ -95,6 +95,7 @@ public class StoreController extends AbstractController {
         pDTO.setUrl(url);
 
         StoreDTO rDTO = storeService.findStoreInfo(pDTO);
+        session.setAttribute("store_seq", rDTO.getStore_seq());
         log.info("rDTO : " + rDTO.getStore_seq());
         return "/index";
 

@@ -4,6 +4,7 @@ import com.sun.deploy.net.HttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import poly.controller.comm.AbstractController;
 import poly.dto.CouponDTO;
 import poly.dto.UserCouponRelationDTO;
@@ -23,18 +24,19 @@ public class CouponController extends AbstractController {
     private ICouponService couponService;
 
     @RequestMapping(value = "coupon/findCouponInfo")
-    public String findCouponInfo(HttpSession session, HttpResponse response, ModelMap model, HttpServletRequest request) throws Exception{
+    public String findCouponInfo(HttpSession session, ModelMap model, HttpServletRequest request) throws Exception{
         log.info(this.getClass().getName() + ".findCouponInfo Start!");
 
         // user_seq 를 가져오기 UR L에서 get // QR 생성 시 적용
         String user_seq = CmmUtil.nvl(request.getParameter("user_seq"));
         String store_seq = CmmUtil.nvl((String) session.getAttribute("store_seq"));
+        store_seq = "2";
 
         try {
             // DTO값을 넘겨주지 않고 사용자 seq 값과 사업자 seq 값을 따로 넘겨준 후 API 서버에서 처리
             CouponDTO pDTO = new CouponDTO();
 
-            String url = "http://localhost:9000/springAPI/coupon/findCoupon.do?1=1";
+            String url = "http://localhost:8090/springAPI/coupon/findCoupon.do?1=1";
             url += "&user_seq=" + user_seq;
             url += "&store_seq=" + store_seq;
 
