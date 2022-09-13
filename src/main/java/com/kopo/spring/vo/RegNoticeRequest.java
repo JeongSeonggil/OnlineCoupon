@@ -6,13 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.security.DenyAll;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoticeRequest {
+public class RegNoticeRequest {
     private Long noticeSeq;
     private String title;
     private NoticeType noticeYN;

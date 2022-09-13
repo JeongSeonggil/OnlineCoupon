@@ -1,20 +1,14 @@
 package com.kopo.spring.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kopo.spring.dto.NoticeDto;
-import com.kopo.spring.repository.entity.NoticeEntity;
 import com.kopo.spring.service.NoticeService;
-import com.kopo.spring.vo.NoticeRequest;
+import com.kopo.spring.vo.RegNoticeRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.session.StandardSession;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -49,7 +43,7 @@ public class NoticeRestController {
     public ResponseEntity<NoticeDto> getOneNotice(@PathVariable final long noticeSeq) throws Exception {
 
         NoticeDto result = noticeService.getOneNotice(noticeSeq);
-        result.add(linkTo(methodOn(NoticeRestController.class).modifyNotice(noticeSeq, NoticeRequest.builder().build())).withRel("update Notice Information"));
+        result.add(linkTo(methodOn(NoticeRestController.class).modifyNotice(noticeSeq, RegNoticeRequest.builder().build())).withRel("update Notice Information"));
 
         result.add(linkTo(methodOn(NoticeRestController.class).deleteNoticeBySeq(result.getNoticeSeq(), "{userId}"))
                 .withRel("delete Notice"));
@@ -74,7 +68,7 @@ public class NoticeRestController {
 
     @PatchMapping("/notices/{noticeSeq}")
     public ResponseEntity<NoticeDto> modifyNotice(
-            @PathVariable final Long noticeSeq, @RequestBody final NoticeRequest request) throws Exception {
+            @PathVariable final Long noticeSeq, @RequestBody final RegNoticeRequest request) throws Exception {
 
         request.setNoticeSeq(noticeSeq);
 
