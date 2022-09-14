@@ -18,7 +18,19 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
 
     }
 
+    @ExceptionHandler(PapagoException.class)
+    public ResponseEntity<ErrorResponse> handlePapagoException(final PapagoException exception) {
+        log.warn("PapagoException occur : ", exception);
+
+        return this.makeErrorResponseEntity(exception.getExceptionResult());
+    }
+
     private ResponseEntity<ErrorResponse> makeErrorResponseEntity(final UserExceptionResult exceptionResult) {
+        return ResponseEntity.status(exceptionResult.getStatus())
+                .body(new ErrorResponse(exceptionResult.name(), exceptionResult.getMessage()));
+    }
+
+    private ResponseEntity<ErrorResponse> makeErrorResponseEntity(final PapagoExceptionResult exceptionResult) {
         return ResponseEntity.status(exceptionResult.getStatus())
                 .body(new ErrorResponse(exceptionResult.name(), exceptionResult.getMessage()));
     }
